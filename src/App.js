@@ -65,31 +65,31 @@ function App() {
       ) : (
         <Signup setRegister={setRegister} register={register} />
       )} */}
-        {loggedIn ? (
-          <Routes>
-            <Route path="/*">
-              <Route
-                index
-                element={
-                  <Login
-                    setRegister={setRegister}
-                    handleLogin={handleLogin}
-                    register={register}
-                  />
-                }
-              />
-            </Route>
-            <Route exact path="/signup" element={<Signup />} />
 
+        <Routes>
+          <Route path="/*">
+            <Route
+              index
+              element={
+                <Login
+                  setRegister={setRegister}
+                  handleLogin={handleLogin}
+                  register={register}
+                />
+              }
+            />
+          </Route>
+          <Route exact path="/signup" element={<Signup />} />
+          {loggedIn ? (
             <Route
               exact
               path="/home"
               element={<Home setRegister={setRegister} />}
             />
-          </Routes>
-        ) : (
-          <Login />
-        )}
+          ) : (
+            ""
+          )}
+        </Routes>
       </UserContext.Provider>
     </div>
   );
