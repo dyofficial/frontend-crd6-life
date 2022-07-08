@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoIosHome, IoMdArrowDropdown } from "react-icons/io";
 import { GrPower } from "react-icons/gr";
 import { FaShoppingCart, FaGlobeAmericas } from "react-icons/fa";
 import { BsFillMegaphoneFill } from "react-icons/bs";
 import "../App.css";
+import { UserContext } from "../auth/UserContext";
 
 const Navigation = ({ register }) => {
+  const { user, setUser } = useContext(UserContext);
+
   console.log(register);
   const navLinks = [
     "USA BANK + INFO",
@@ -49,7 +53,7 @@ const Navigation = ({ register }) => {
           {register ? (
             <div className="profile-links">
               <ul>
-                <li>Balance: 0$</li>
+                <li>Balance: {user}</li>
                 <li className="menu">
                   Menu
                   <IoMdArrowDropdown />

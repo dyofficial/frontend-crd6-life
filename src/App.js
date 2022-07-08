@@ -1,15 +1,22 @@
-import { useState, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect, useMemo } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 import Signup from "./components/Signup";
+import { UserContext } from "./auth/UserContext";
 
 function App() {
   const [register, setRegister] = useState(false);
+  const [user, setUser] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(null);
 
   const [pageTitle, setPageTitle] = useState("Home");
+
+  const value = useMemo(() => ({ user, setUser }), [user, setUser]);
+
+  let navigate = useNavigate();
 
   const titleMap = [
     { path: "/", title: "crd6.life" },
@@ -26,6 +33,13 @@ function App() {
     }
   }, [curLoc]);
 
+  useEffect(() => {
+    if (localStorage.getItem("user-info")) {
+      setLoggedIn(true);
+    } else {
+      navigate("/");
+    }
+  }, [localStorage.getItem("user-info")]);
   const handleSignup = (e) => {
     setRegister(true);
     e.preventDefault();
@@ -40,8 +54,9 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation register={register} />
-      {/* {!register ? (
+      <UserContext.Provider value={value}>
+        <Navigation register={register} />
+        {/* {!register ? (
         <Login
           setRegister={setRegister}
           handleLogin={handleLogin}
@@ -50,26 +65,32 @@ function App() {
       ) : (
         <Signup setRegister={setRegister} register={register} />
       )} */}
-      <Routes>
-        <Route path="/*">
-          <Route
-            index
-            element={
-              <Login
-                setRegister={setRegister}
-                handleLogin={handleLogin}
-                register={register}
+        {loggedIn ? (
+          <Routes>
+            <Route path="/*">
+              <Route
+                index
+                element={
+                  <Login
+                    setRegister={setRegister}
+                    handleLogin={handleLogin}
+                    register={register}
+                  />
+                }
               />
-            }
-          />
-        </Route>
-        <Route exact path="/signup" element={<Signup />} />
-        <Route
-          exact
-          path="/home"
-          element={<Home setRegister={setRegister} />}
-        />
-      </Routes>
+            </Route>
+            <Route exact path="/signup" element={<Signup />} />
+
+            <Route
+              exact
+              path="/home"
+              element={<Home setRegister={setRegister} />}
+            />
+          </Routes>
+        ) : (
+          <Login />
+        )}
+      </UserContext.Provider>
     </div>
   );
 }
