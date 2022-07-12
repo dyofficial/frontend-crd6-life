@@ -67,7 +67,6 @@ input:-webkit-autofill:focus {
 }
 .capcha canvas {
   margin-left: -20px;
-  /* border: 1px solid red; */
 }
 .content {
   display: flex;
@@ -130,7 +129,7 @@ input:-webkit-autofill:focus {
   background-color: #2a313a;
   border-radius: 5px;
   font-size: 14px;
-  width: 200px;
+  width: 300px;
 }
 .left {
   display: flex;
@@ -169,6 +168,7 @@ input:-webkit-autofill:focus {
   margin-top: 10px;
   font-size: 14px;
   font-weight: bold;
+  cursor: pointer;
 }
 .nav-links {
   display: flex;
@@ -200,24 +200,48 @@ li {
   justify-content: center;
   align-items: center;
 }
-.profile-links ul {
-  display: flex;
+.profile-links .profile-ul {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
-.profile-links ul li {
+.profile-links .dropdown {
+  /* background-color: red; */
+}
+.profile-links li {
   font-size: 12px;
+  position: relative;
 }
 .left-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.menu {
+.menu-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  top: 54px;
+  width: 150px;
+}
+.menu-links {
+  border: 1px solid white;
+  background-color: #373e48;
+  border-radius: 5px;
+  /* text-decoration: underline; */
+  cursor: pointer;
+
+  display: block;
+}
+.menu-links li {
+  border-bottom: 1px solid white;
+}
+.off {
+  display: none;
+}
+.menu {
   padding: 0 10px;
   color: #fff;
   font: 16px CalibriBold;
@@ -244,8 +268,10 @@ li {
   box-shadow: 0px 5px 15px -5px rgb(32 34 36);
   line-height: 35px;
   cursor: pointer;
-  position: relative;
   margin-right: 35px;
+}
+.inactive {
+  top: 0px;
 }
 .sitebar_left {
   border-radius: 6px;
@@ -346,7 +372,7 @@ input[type="password"]:active {
   outline: none;
 }
 .icons {
-  width: 100px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -354,4 +380,12 @@ input[type="password"]:active {
 }
 input {
   color: white;
+}
+.dropdown {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  /* width: 200px; */
+  position: relative;
+  /* top: 50px; */
 }

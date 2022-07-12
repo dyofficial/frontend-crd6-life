@@ -56,15 +56,6 @@ function App() {
     <div className="App">
       <UserContext.Provider value={value}>
         <Navigation register={register} />
-        {/* {!register ? (
-        <Login
-          setRegister={setRegister}
-          handleLogin={handleLogin}
-          register={register}
-        />
-      ) : (
-        <Signup setRegister={setRegister} register={register} />
-      )} */}
 
         <Routes>
           <Route path="/*">

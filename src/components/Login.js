@@ -1,21 +1,29 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../auth/UserContext";
+import { useAtom } from "jotai";
+import { newUser } from "../auth/atom";
+
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
 
-const Login = ({ setRegister, handleLogin, register }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  const [user, setUser] = useAtom(newUser);
+
   let navigate = useNavigate();
+
+  // const { user, setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
     let item = { email, password };
     let result = await fetch(
       "https://whispering-badlands-40545.herokuapp.com/user/signin",
@@ -31,7 +39,7 @@ const Login = ({ setRegister, handleLogin, register }) => {
       }
     );
     result = await result.json();
-    console.log(result);
+    setUser(result.data[0].email);
 
     let user_captcha = document.getElementById("user_captcha_input").value;
 

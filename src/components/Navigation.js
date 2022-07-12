@@ -1,5 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAtom } from "jotai";
+import { faqToggle, newUser } from "../auth/atom";
 import { IoIosHome, IoMdArrowDropdown } from "react-icons/io";
 import { GrPower } from "react-icons/gr";
 import { FaShoppingCart, FaGlobeAmericas } from "react-icons/fa";
@@ -8,9 +10,18 @@ import "../App.css";
 import { UserContext } from "../auth/UserContext";
 
 const Navigation = ({ register }) => {
-  const { user, setUser } = useContext(UserContext);
+  const [dropDown, setDropDown] = useState(false);
+  // const { user, setUser } = useContext(UserContext);
+  const [faq, setFaq] = useAtom(faqToggle);
+  const [user, setUser] = useAtom(newUser);
 
-  console.log(register);
+  const profileToggle = () => {
+    setFaq(false);
+    console.log("first");
+  };
+
+  console.log(user);
+
   const navLinks = [
     "USA BANK + INFO",
     "USA BANK (Logpass)",
@@ -52,12 +63,41 @@ const Navigation = ({ register }) => {
           </div>
           {register ? (
             <div className="profile-links">
-              <ul>
-                <li>Balance: {user}</li>
-                <li className="menu">
-                  Menu
-                  <IoMdArrowDropdown />
+              <ul className="profile-ul">
+                <li>Balance: $0</li>
+                <li>
+                  <div
+                    className={
+                      !dropDown ? "menu-container inactive" : "menu-container"
+                    }
+                    onMouseEnter={() => setDropDown(true)}
+                    onMouseLeave={() => setDropDown(false)}
+                    onClick={() => setDropDown(!dropDown)}
+                  >
+                    <div className="menu">
+                      <span>Menu</span>
+                      <IoMdArrowDropdown />
+                    </div>
+                    <ul
+                      className={!dropDown ? "menu-links off" : "menu-links"}
+                      onMouseEnter={() => setDropDown(true)}
+                    >
+                      <li onClick={profileToggle}>{user}</li>
+                      <li>boyijrn5t8rynmh98yruh8yt8tn8tnhtyn</li>
+                      <li>boy</li>
+                    </ul>
+                    {/* {dropDown ? (
+                      <ul className="dropdown">
+                        <li>{user}</li>
+                        <li>boy</li>
+                        <li>boy</li>
+                      </ul>
+                    ) : (
+                      ""
+                    )} */}
+                  </div>
                 </li>
+
                 <div className="icons">
                   <FaShoppingCart color="white" size="20px" />
                   <BsFillMegaphoneFill color="white" size="20px" />
