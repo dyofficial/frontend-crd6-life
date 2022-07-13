@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 import Signup from "./components/Signup";
 import { UserContext } from "./auth/UserContext";
+import Balance from "./components/Balance";
 
 function App() {
   const [register, setRegister] = useState(false);
@@ -72,11 +73,18 @@ function App() {
           </Route>
           <Route exact path="/signup" element={<Signup />} />
           {loggedIn ? (
-            <Route
-              exact
-              path="/home"
-              element={<Home setRegister={setRegister} />}
-            />
+            <>
+              <Route
+                exact
+                path="/home"
+                element={<Home setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/balance"
+                element={<Balance setRegister={setRegister} />}
+              />
+            </>
           ) : (
             ""
           )}

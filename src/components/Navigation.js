@@ -82,9 +82,17 @@ const Navigation = ({ register }) => {
                       className={!dropDown ? "menu-links off" : "menu-links"}
                       onMouseEnter={() => setDropDown(true)}
                     >
-                      <li onClick={profileToggle}>{user}</li>
-                      <li>boyijrn5t8rynmh98yruh8yt8tn8tnhtyn</li>
-                      <li>boy</li>
+                      <li onClick={profileToggle}>Profile {user}</li>
+                      <div className="underline"></div>
+
+                      <li>My orders</li>
+                      <li>My cancels</li>
+                      <div className="underline"></div>
+                      <li>Transactions</li>
+                      <Link to="/balance">
+                        <li>Fill up through bitcoin</li>
+                      </Link>
+                      <li>Fill up through bitcoin CASH</li>
                     </ul>
                     {/* {dropDown ? (
                       <ul className="dropdown">
