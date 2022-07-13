@@ -472,7 +472,7 @@ input {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 700px;
+  width: 500px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
@@ -490,7 +490,7 @@ input {
   background: #222931;
   color: #fff;
   font: 16px/1.5em Calibri;
-  width: 700px;
+  width: 500px;
 }
 .item_info__balance {
   color: #7e8795;
