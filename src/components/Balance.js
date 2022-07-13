@@ -20,6 +20,7 @@ const Balance = ({ setRegister }) => {
       return document.execCommand("copy", true, text);
     }
   }
+  const handleChange = () => {};
 
   // onClick handler function for the copy button
   const handleCopyClick = () => {
@@ -54,7 +55,12 @@ const Balance = ({ setRegister }) => {
               <div className="btc-container">
                 <div className="usd-amt">
                   <span className="btc-txt">Desired amount of payment ($)</span>
-                  <input type="text" className="amount" value="100" />
+                  <input
+                    type="text"
+                    className="amount"
+                    value="100"
+                    onChange={handleChange}
+                  />
                 </div>
                 <div className="converter">
                   <span className="btc-txt">Need to transfer BTC</span>
@@ -63,7 +69,7 @@ const Balance = ({ setRegister }) => {
               </div>
               <div className="item_info__balance ">
                 <span>
-                  Your BTC address:{" "}
+                  Your BTC address:
                   <span className="btc-wallet">{copyText}</span>
                   <BiCopy onClick={handleCopyClick(copyText)} />
                 </span>

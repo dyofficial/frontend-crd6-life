@@ -304,11 +304,11 @@ li {
 .sitebar_left {
   border-radius: 6px;
   padding: 0 15px 0 25px;
-  position: fixed;
+  position: absolute;
   background: #222931;
   width: 390px;
   left: 15px;
-  top: 115px;
+  top: -50px;
   height: calc(100vh - 115px);
 }
 .content_sitebar {
