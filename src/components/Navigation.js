@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { faqToggle, newUser } from "../auth/atom";
@@ -13,14 +13,24 @@ const Navigation = ({ register }) => {
   const [dropDown, setDropDown] = useState(false);
   // const { user, setUser } = useContext(UserContext);
   const [faq, setFaq] = useAtom(faqToggle);
-  const [user, setUser] = useAtom(newUser);
+  const [user, setUser] = useState(null);
+  // const [user, setUser] = useAtom(newUser);
+  // const [brotherPastor, setBrotherPastor] = useState(null);
 
-  const profileToggle = () => {
-    setFaq(false);
-    console.log("first");
-  };
+  useEffect(() => {
+    let userObject = JSON.parse(localStorage.getItem("user-info"));
+    let currentUser = userObject.data[0].email;
+    console.log(currentUser);
+    setUser(currentUser);
+  });
 
-  console.log(user);
+  // console.log(user);
+  // useEffect(() => {
+  //   setBrotherPastor(user);
+  //   console.log("new User", brotherPastor);
+  // }, [user]);
+
+  // console.log(user);
 
   const navLinks = [
     "USA BANK + INFO",
@@ -82,7 +92,9 @@ const Navigation = ({ register }) => {
                       className={!dropDown ? "menu-links off" : "menu-links"}
                       onMouseEnter={() => setDropDown(true)}
                     >
-                      <li onClick={profileToggle}>Profile {user}</li>
+                      <Link to="/profile">
+                        <li>Profile {user}</li>
+                      </Link>
                       <div className="underline"></div>
 
                       <li>My orders</li>

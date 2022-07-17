@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home";
+import Profile from "./components/Profile";
 import Login from "./components/Login";
 import Navigation from "./components/Navigation";
 import Signup from "./components/Signup";
@@ -83,6 +84,11 @@ function App() {
                 exact
                 path="/balance"
                 element={<Balance setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/profile"
+                element={<Profile setRegister={setRegister} />}
               />
             </>
           ) : (

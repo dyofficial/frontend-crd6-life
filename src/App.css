@@ -466,7 +466,7 @@ input {
   margin-top: 40px;
   display: flex;
   align-items: flex-start;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 .btc-container {
   display: flex;
@@ -490,7 +490,8 @@ input {
   background: #222931;
   color: #fff;
   font: 16px/1.5em Calibri;
-  width: 500px;
+  width: 400px;
+  margin-left: 30px;
 }
 .item_info__balance {
   color: #7e8795;
@@ -509,4 +510,51 @@ input {
 input [type="number"] {
   background-color: #1d232a;
   border: 1px solid red;
+}
+.profile-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.profile-head span {
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.profile-profile {
+  /* margin-left: 10px;
+  margin-top: 10px; */
+  padding: 20px;
+}
+.profile-form {
+  padding: 20px 25px;
+  border-radius: 6px;
+  background: #222931;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 15px;
+  /* height: 200px; */
+}
+.profile-top {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  /* justify-content: space-between; */
+}
+.logins {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  background: #2a313a;
+  border-radius: 5px;
+  border: 1px solid #323842;
+  color: #7e8795;
+  font: 14px CalibriBold;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  width: 100%;
 }

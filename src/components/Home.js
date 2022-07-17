@@ -18,7 +18,7 @@ const Home = ({ setRegister }) => {
         <Sidebar />
       </div>
       <div className="faq-content">
-        {faq ? <Faq /> : <Profile setFaq={setFaq} />}
+        <Faq />
       </div>
     </div>
   );
