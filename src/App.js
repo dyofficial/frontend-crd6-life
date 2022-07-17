@@ -28,6 +28,12 @@ function App() {
     { path: "/", title: "crd6.life" },
     { path: "/home", title: "FAQs" },
     { path: "/signup", title: "Sign Up" },
+    { path: "/balance", title: "Balance" },
+    { path: "/profile", title: "Profile" },
+    { path: "/orders", title: "My Orders" },
+    { path: "/transactions", title: "Transactions" },
+    { path: "/cancels", title: "My Cancels" },
+    { path: "/balance_cash", title: "Bitcoin CASH.Improve Balance" },
   ];
 
   let curLoc = useLocation();
