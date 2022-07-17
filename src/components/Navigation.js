@@ -96,15 +96,23 @@ const Navigation = ({ register }) => {
                         <li>Profile {user}</li>
                       </Link>
                       <div className="underline"></div>
-
-                      <li>My orders</li>
-                      <li>My cancels</li>
+                      <Link to="/orders">
+                        <li>My orders</li>
+                      </Link>
+                      <Link to="/cancels">
+                        <li>My cancels</li>
+                      </Link>
                       <div className="underline"></div>
-                      <li>Transactions</li>
+                      <Link to="/transactions">
+                        <li>Transactions</li>
+                      </Link>
+
                       <Link to="/balance">
                         <li>Fill up through bitcoin</li>
                       </Link>
-                      <li>Fill up through bitcoin CASH</li>
+                      <Link to="/balance_cash">
+                        <li>Fill up through bitcoin CASH</li>
+                      </Link>
                     </ul>
                     {/* {dropDown ? (
                       <ul className="dropdown">

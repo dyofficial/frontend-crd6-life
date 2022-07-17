@@ -8,6 +8,10 @@ import Navigation from "./components/Navigation";
 import Signup from "./components/Signup";
 import { UserContext } from "./auth/UserContext";
 import Balance from "./components/Balance";
+import MyOrders from "./components/MyOrders";
+import Transactions from "./components/Transactions";
+import Cancels from "./components/Cancels";
+import BtcCash from "./components/BtcCash";
 
 function App() {
   const [register, setRegister] = useState(false);
@@ -89,6 +93,26 @@ function App() {
                 exact
                 path="/profile"
                 element={<Profile setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/orders"
+                element={<MyOrders setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/transactions"
+                element={<Transactions setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/cancels"
+                element={<Cancels setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/balance_cash"
+                element={<BtcCash setRegister={setRegister} />}
               />
             </>
           ) : (
