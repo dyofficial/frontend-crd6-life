@@ -19,9 +19,12 @@ const Navigation = ({ register }) => {
 
   useEffect(() => {
     let userObject = JSON.parse(localStorage.getItem("user-info"));
-    let currentUser = userObject.data[0].email;
-    console.log(currentUser);
-    setUser(currentUser);
+
+    if (userObject) {
+      let currentUser = userObject.data[0].email;
+      console.log(currentUser);
+      setUser(currentUser);
+    }
   });
 
   // console.log(user);
