@@ -12,11 +12,13 @@ import MyOrders from "./components/MyOrders";
 import Transactions from "./components/Transactions";
 import Cancels from "./components/Cancels";
 import BtcCash from "./components/BtcCash";
+import Bank from "./components/Bank";
 
 function App() {
   const [register, setRegister] = useState(false);
   const [user, setUser] = useState(null);
   const [loggedIn, setLoggedIn] = useState(null);
+  const [displayedBank, setDisplayedBank] = useState("");
 
   const [pageTitle, setPageTitle] = useState("Home");
 
@@ -67,7 +69,11 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value={value}>
-        <Navigation register={register} />
+        <Navigation
+          register={register}
+          displayedBank={displayedBank}
+          setDisplayedBank={setDisplayedBank}
+        />
 
         <Routes>
           <Route path="/*">
@@ -119,6 +125,17 @@ function App() {
                 exact
                 path="/balance_cash"
                 element={<BtcCash setRegister={setRegister} />}
+              />
+              <Route
+                exact
+                path="/pages"
+                element={
+                  <Bank
+                    setRegister={setRegister}
+                    displayedBank={displayedBank}
+                    setDisplayedBank={setDisplayedBank}
+                  />
+                }
               />
             </>
           ) : (

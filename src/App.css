@@ -349,6 +349,7 @@ li {
 .content_main {
   /* padding-right: 50px; */
   margin-left: -20px;
+  max-width: 50%;
 }
 .main__title {
   color: #fff;
@@ -373,6 +374,7 @@ li {
 .home-content {
   position: relative;
   padding-left: 455px;
+  /* max-width: 60vw; */
 }
 .faq-top {
   display: flex;
@@ -557,4 +559,75 @@ input [type="number"] {
   margin-right: 10px;
   margin-bottom: 5px;
   width: 100%;
+}
+.bank-list {
+  border: 1px solid red;
+  z-index: 50;
+  position: relative;
+  top: 22rem;
+  left: -9rem;
+  display: none;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  /* grid-column-gap: 20px; */
+  grid-row-gap: 10px;
+  background-color: red;
+  width: min-content;
+
+  /* visibility: hidden; */
+  /* display: none; */
+}
+.bank-name {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  border: 1px solid red;
+  margin-bottom: 20px;
+}
+.bank-name span {
+  margin-left: 20px;
+}
+.drop {
+  display: grid;
+}
+.desc-block {
+  padding: 17px 20px;
+  border-radius: 4px;
+  background: #323842;
+  color: #fff;
+  font: 16px CalibriBold;
+  margin-bottom: 25px;
+}
+.bank-form {
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  background-color: #222932;
+}
+.table {
+  width: 100%;
+}
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #353c45;
+}
+th {
+  color: #fdbf00;
+}
+td {
+  color: white;
+}
+.buy {
+  width: 75px;
+  height: 100%;
+  background-color: #54ac21;
+  display: flex;
+  color: white;
+  border-radius: 5px;
+  justify-content: space-around;
+  margin-left: 50%;
 }
