@@ -561,8 +561,8 @@ input [type="number"] {
   width: 100%;
 }
 .bank-list {
-  border: 1px solid red;
   z-index: 50;
+  border: 1px solid white;
   position: relative;
   top: 22rem;
   left: -9rem;
@@ -571,7 +571,7 @@ input [type="number"] {
   grid-template-rows: repeat(14, 1fr);
   /* grid-column-gap: 20px; */
   grid-row-gap: 10px;
-  background-color: red;
+  background-color: #2a313a;
   width: min-content;
 
   /* visibility: hidden; */
