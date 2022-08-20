@@ -4,11 +4,21 @@ import PageLayout from "./PageLayout";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Bank = ({ setRegister, displayedBank }) => {
+  const [worth, setWorth] = useState();
+  const [price, setPrice] = useState();
   useEffect(() => {
     setRegister(true);
   }, []);
 
   console.log("first", displayedBank);
+
+  let amount = Math.floor(Math.random() * 10000);
+  console.log(amount);
+
+  const priceGenerator = () => {
+    let displayPrice = Math.floor(Math.random() * 1000);
+    console.log(displayPrice);
+  };
 
   return (
     <PageLayout>
@@ -22,12 +32,12 @@ const Bank = ({ setRegister, displayedBank }) => {
       </div>
       <form className="bank-form">
         <label>Price</label>
-        <input type="text" placeholder="from" class="filter" />-
-        <input type="text" placeholder="to" class="filter" />
+        <input type="text" placeholder="from" className="filter" />-
+        <input type="text" placeholder="to" className="filter" />
         <label>Total Balance</label>
-        <input type="text" placeholder="balance" class="filter" />
+        <input type="text" placeholder="balance" className="filter" />
         <input type="text" placeholder="Account" />
-        <button>Search</button>
+        <button className="search">Search</button>
       </form>
       <table className="table">
         <tr>
@@ -37,26 +47,71 @@ const Bank = ({ setRegister, displayedBank }) => {
           <th>Buy</th>
         </tr>
         <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-          <td>$100</td>
+          <td>$45237</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$455</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>
           </td>
         </tr>
         <tr>
-          <td>Lois</td>
-          <td>Griffin</td>
-          <td>$150</td>
+          <td>$27387</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$230</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>
           </td>
         </tr>
         <tr>
-          <td>Joe</td>
-          <td>Swanson</td>
+          <td>$35230</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$334</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$65290</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$570</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$77800</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$210</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$56870</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$521</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$40700</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$480</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$12240</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
           <td>$300</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
@@ -64,45 +119,72 @@ const Bank = ({ setRegister, displayedBank }) => {
           </td>
         </tr>
         <tr>
-          <td>Cleveland</td>
-          <td>Brown</td>
-          <td>$250</td>
+          <td>$45237</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$455</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>
           </td>
         </tr>
         <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-          <td>$100</td>
+          <td>$27387</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$230</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>
           </td>
         </tr>
         <tr>
-          <td>Lois</td>
-          <td>Griffin</td>
-          <td>$150</td>
+          <td>$35230</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$334</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>
           </td>
         </tr>
         <tr>
-          <td>Joe</td>
-          <td>Swanson</td>
+          <td>$65290</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$570</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$77800</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$210</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$56870</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$521</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$40700</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
+          <td>$480</td>
+          <td className="buy">
+            <FaShoppingCart color="#fff" />
+            <span>Buy</span>
+          </td>
+        </tr>
+        <tr>
+          <td>$12240</td>
+          <td>SAVINGS + CHECKINGS + INFO + EMAIL ACCESS + LOGIN PASS</td>
           <td>$300</td>
-          <td className="buy">
-            <FaShoppingCart color="#fff" />
-            <span>Buy</span>
-          </td>
-        </tr>
-        <tr>
-          <td>Cleveland</td>
-          <td>Brown</td>
-          <td>$250</td>
           <td className="buy">
             <FaShoppingCart color="#fff" />
             <span>Buy</span>

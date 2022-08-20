@@ -583,7 +583,6 @@ input [type="number"] {
   color: white;
   font-size: 27px;
   font-weight: bold;
-  border: 1px solid red;
   margin-bottom: 20px;
 }
 .bank-name span {
@@ -601,10 +600,24 @@ input [type="number"] {
   margin-bottom: 25px;
 }
 .bank-form {
-  border: 1px solid red;
   display: flex;
   align-items: center;
   background-color: #222932;
+  padding: 20px;
+  color: #383e48;
+}
+.bank-form > * {
+  margin-right: 20px;
+}
+.search {
+  background-color: #fdbf00;
+  padding: 5px;
+  width: 50px;
+  border: none;
+  border-radius: 4px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
 }
 .table {
   width: 100%;
@@ -630,4 +643,7 @@ td {
   border-radius: 5px;
   justify-content: space-around;
   margin-left: 50%;
+}
+.filter input[type="text"] {
+  background: red;
 }
